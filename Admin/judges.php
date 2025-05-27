@@ -1,6 +1,7 @@
 <?php 
 require_once '../Config/db.php';
 require_once '../includes/admin_functions.php';
+require_once '../Auth/includes/auth_check.php';
 
 $judges = getAllJudges();
 ?>

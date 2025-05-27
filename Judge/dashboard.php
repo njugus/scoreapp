@@ -1,6 +1,7 @@
 <?php
 require_once '../Config/db.php';
 require_once './includes/judge_functions.php';
+require_once '../Auth/includes/auth_check.php';
 
 $judge_id = 1; // Hardcoded for demo (replace with session variable later)
 $participants = getAllParticipants();
