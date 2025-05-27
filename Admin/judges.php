@@ -1,6 +1,6 @@
 <?php 
-require_once '../config/database.php';
-require_once 'includes/admin_functions.php';
+require_once '../config/db.php';
+require_once '../includes/admin_functions.php';
 
 // Fetch all judges in the system
 $judges = getAllJudges(); // Function from admin_functions.php in actions folder
