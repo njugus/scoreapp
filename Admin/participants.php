@@ -5,32 +5,57 @@ require_once '../includes/admin_functions.php';
 $participants = getAllParticipants();
 ?>
 
-<h2>Manage Participants</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Participants</title>
+    <link rel="stylesheet" href="./includes/participants.css">
+</head>
+<body>
+    <h2>Manage Participants</h2>
+    
+    <div class="form-container">
+        <form action="../Admin/Actions/save_participants.php" method="post">
+            <div>
+                <label for="name">Participant Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter full name" required>
+            </div>
+            <div>
+                <label for="category">Category</label>
+                <input type="text" id="category" name="category" placeholder="e.g. Solo, Team">
+            </div>
+            <button type="submit">Add Participant</button>
+        </form>
+    </div>
 
-<form action="../Admin/Actions/save_participants.php" method="post">
-    <input type="text" name="name" placeholder="Participant Name" required>
-    <input type="text" name="category" placeholder="Category (optional)">
-    <button type="submit">Add Participant</button>
-</form>
-
-<!-- Participants List Table To dispplay participants -->
-<table>
-    <tr>
-        <th>ID</th>
-        <th>name</th>
-        <th>category</th>
-        <th>Actions</th>
-    </tr>
-    <?php foreach ($participants as $participant): ?>
-    <tr>
-        <td><?= $participant['id'] ?></td>
-        <td><?= htmlspecialchars($participant['name']) ?></td>
-        <td><?= htmlspecialchars($participant['category']) ?></td>
-        <td>
-            <a href="edit_judge.php?id=<?= $participant['id'] ?>">Edit</a>
-            <a href="actions/delete_judge.php?id=<?= $participant['id'] ?>" 
-               onclick="return confirm('Delete this judge?')">Delete</a>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($participants as $participant): ?>
+            <tr>
+                <td><?= $participant['id'] ?></td>
+                <td><?= htmlspecialchars($participant['name'], ENT_QUOTES, 'UTF-8') ?></td>
+                <td><?= !empty($participant['category']) ? htmlspecialchars($participant['category'], ENT_QUOTES, 'UTF-8') : '—' ?></td>
+                <td class="actions">
+                    <a href="edit_participant.php?id=<?= $participant['id'] ?>" class="edit-btn">Edit</a>
+                    <a href="actions/delete_participant.php?id=<?= $participant['id'] ?>" 
+                       class="delete-btn" 
+                       onclick="return confirm('Are you sure you want to delete <?= htmlspecialchars(addslashes($participant['name']), ENT_QUOTES, 'UTF-8') ?>?')">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</body>
+</html>
