@@ -1,0 +1,122 @@
+        :root {
+            --primary: #4361ee;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --text: #2b2d42;
+            --light-bg: #f8f9fa;
+            --border: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light-bg);
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .scoring-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .scoring-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .scoring-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .scoring-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .scoring-table tr.scored {
+            background-color: rgba(76, 201, 240, 0.1);
+        }
+        
+        .scoring-table tr:hover {
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+        
+        .score-form {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .score-input {
+            width: 80px;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 0.25rem;
+            text-align: center;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #3a56d4;
+        }
+        
+        .already-scored {
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .scored-badge {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .not-scored-badge {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .scoring-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .score-form {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
