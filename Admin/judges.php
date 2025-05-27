@@ -1,5 +1,5 @@
 <?php 
-require_once '../config/db.php';
+require_once '../Config/db.php';
 require_once '../includes/admin_functions.php';
 
 // Fetch all judges in the system
@@ -9,7 +9,7 @@ $judges = getAllJudges(); // Function from admin_functions.php in actions folder
 <h2>Manage Judges</h2>
 
 <!-- Add New Judge Form -->
-<form action="actions/save_judge.php" method="post">
+<form action="../Admin/Actions/save_judges.php" method="post">
     <input type="text" name="username" placeholder="Judge Username" required>
     <input type="text" name="display_name" placeholder="Display Name" required>
     <button type="submit">Add Judge</button>

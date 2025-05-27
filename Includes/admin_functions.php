@@ -1,4 +1,6 @@
 <?php
+require_once '../Config/db.php'; 
+
 function getAllJudges() {
     global $pdo;
     $stmt = $pdo->query("SELECT * FROM judges ORDER BY id DESC");

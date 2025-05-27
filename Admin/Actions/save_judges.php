@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/database.php';
+require_once '../../Config/db.php';
 
 if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
